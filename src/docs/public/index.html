@@ -8,15 +8,15 @@
   </head>
   <body>
     <section class="page-header">
-      <h1 class="project-name">vue-the-mask</h1>
-      <h2 class="project-tagline">The Mask input for Vue.js</h2>
-      <a href="http://github.com/soft4ti/vue-the-mask" class="btn">View on GitHub</a>
+      <h1 class="project-name">vue3-the-mask</h1>
+      <h2 class="project-tagline">The Mask input for Vue 3</h2>
+      <a href="http://github.com/soft4ti/vue3-the-mask" class="btn">View on GitHub</a>
     </section>
 
     <section class="main-content">
       <h2>The Mask input for Vue.js</h2>
 
-      <p>A lightweight (2KB gzipped) and dependency free mask input created specific for Vue.js</p>
+      <p>A lightweight (2KB gzipped) and dependency free mask input created specific for Vue 3</p>
 
       <div id="app">
         loading...
@@ -26,37 +26,38 @@
 
       <p class="language-shell highlighter-rouge">
         <pre class="highlight">
-          <code>
-            yarn add vue-the-mask
-              or
-            npm i -S vue-the-mask
-          </code>
+  <code>
+    yarn add vue-the-mask
+      or
+    npm i -S vue-the-mask
+  </code>
         </pre>
       </p>
 
       <h3>Usage</h3>
 
-      <p class="language-javascript highlighter-rouge"><pre class="highlight">
-        <code>
-          // Global
-            import { createApp } from 'vue';
-            import VueTheMask from 'vue-the-mask';
+      <p class="language-javascript highlighter-rouge">
+        <pre class="highlight">
+  <code>
+    // Global
+    import { createApp } from 'vue';
+    import VueTheMask from 'vue-the-mask';
 
-            const app = createApp({});
-            app.use(VueTheMask)
+    const app = createApp({});
+    app.use(VueTheMask)
 
-            // Local Component
-            import {TheMask} from 'vue-the-mask'
-            export default {
-              components: {TheMask}
-            }
+    // Local Component
+    import {TheMask} from 'vue-the-mask'
+    export default {
+      components: {TheMask}
+    }
 
-            // Local Directive
-            import {mask} from 'vue-the-mask'
-            export default {
-              directives: {mask}
-            }
-          </code>
+    // Local Directive
+    import {mask} from 'vue-the-mask'
+    export default {
+      directives: {mask}
+    }
+  </code>
         </pre>
       </p>
 

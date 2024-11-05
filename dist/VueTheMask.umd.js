@@ -316,7 +316,7 @@ function directive_event(name) {
 }
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__(274);
-;// ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/component.vue?vue&type=template&id=1d380615
+;// ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/component.vue?vue&type=template&id=2c68ee7e
 
 const _hoisted_1 = ["value"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -327,16 +327,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onInput: _cache[0] || (_cache[0] = (...args) => $options.onInput && $options.onInput(...args))
   }, null, 40, _hoisted_1)), [[_directive_mask, $options.config]]);
 }
-;// ./src/component.vue?vue&type=template&id=1d380615
+;// ./src/component.vue?vue&type=template&id=2c68ee7e
 
 ;// ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/component.vue?vue&type=script&lang=js
 
 
 
 /* harmony default export */ const componentvue_type_script_lang_js = ({
-  name: 'TheMask',
+  name: "TheMask",
+  emits: ["update:modelValue"],
   props: {
-    value: [String, Number],
+    modelValue: [String, Number],
     mask: {
       type: [String, Array],
       required: true
@@ -358,11 +359,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     return {
       lastValue: null,
       // avoid unecessary emit when has no change
-      display: this.value
+      display: this.modelValue
     };
   },
   watch: {
-    value(newValue) {
+    modelValue(newValue) {
       if (newValue !== this.lastValue) {
         this.display = newValue;
       }
@@ -390,7 +391,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       var value = masker(value, this.mask, this.masked, this.tokens);
       if (value !== this.lastValue) {
         this.lastValue = value;
-        this.$emit('input', value);
+        this.$emit("update:modelValue", value);
       }
     }
   }
@@ -412,15 +413,15 @@ const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.A)(componentvue_ty
 
 
 
-function install(Vue) {
-  Vue.component(component.name, component);
-  Vue.directive('mask', directive);
-}
+const install = app => {
+  app.component(component.name, component);
+  app.directive("mask", directive);
+};
 /* harmony default export */ const src_0 = (install);
 
 
 // Install by default if included from script tag
-if (typeof window !== 'undefined' && window.Vue) {
+if (typeof window !== "undefined" && window.Vue) {
   window.Vue.use(install);
 }
 ;// ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js

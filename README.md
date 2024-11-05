@@ -2,7 +2,7 @@
 
 A lightweight (2KB gzipped) and dependency free mask input created specific for Vue 3
 
-> [Docs and Demo](https://soft4ti.github.io/vue-the-mask)
+> [Docs and Demo](https://soft4ti.github.io/vue3-the-mask)
 
 ## Install
 
@@ -63,7 +63,7 @@ export default {
 
 ## Contribution
 
-You're free to contribute to this project by submitting [issues](https://github.com/soft4ti/vue-the-mask/issues) and/or [pull requests](https://github.com/soft4ti/vue-the-mask/pulls). This project is test-driven, so keep in mind that every change and new feature should be covered by tests. Your name will be added to the hall of fame ;)
+You're free to contribute to this project by submitting [issues](https://github.com/soft4ti/vue3-the-mask/issues) and/or [pull requests](https://github.com/soft4ti/vue3-the-mask/pulls). This project is test-driven, so keep in mind that every change and new feature should be covered by tests. Your name will be added to the hall of fame ;)
 
 ## License
 

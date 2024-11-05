@@ -42,7 +42,7 @@
   },
   "size-limit": [
     {
-      "path": "dist/vue-the-mask.umd.min.js",
+      "path": "dist/vue-the-mask.js",
       "limit": "1.55 KB"
     }
   ],
@@ -97,11 +97,10 @@
     "puppeteer": "^23.7.0",
     "serve": "^14.2.4",
     "size-limit": "^11.1.6",
+    "start-server-and-test": "^2.0.8",
     "testcafe": "^3.7.0",
     "vue": "^3.5.12",
     "vue-loader": "^17.4.2"
   },
-  "dependencies": {
-    "start-server-and-test": "^2.0.8"
-  }
+  "dependencies": {}
 }
