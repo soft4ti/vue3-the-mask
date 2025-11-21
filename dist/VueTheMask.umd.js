@@ -7,7 +7,7 @@
 		exports["VueTheMask"] = factory(require("vue"));
 	else
 		root["VueTheMask"] = factory(root["Vue"]);
-})(typeof self !== 'undefined' ? self : this, (__WEBPACK_EXTERNAL_MODULE__274__) => {
+})(Object(typeof self !== 'undefined' ? self : this), (__WEBPACK_EXTERNAL_MODULE__274__) => {
 return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
@@ -117,7 +117,8 @@ __webpack_require__.d(__webpack_exports__, {
 
 if (typeof window !== 'undefined') {
   var currentScript = window.document.currentScript
-  if (false) { var getCurrentScript; }
+  if (false) // removed by dead control flow
+{ var getCurrentScript; }
 
   var src = currentScript && currentScript.src.match(/(.+\/)[^/]+\.js(\?.*)?$/)
   if (src) {

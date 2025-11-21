@@ -100,7 +100,8 @@ __webpack_require__.d(__webpack_exports__, {
 
 if (typeof window !== 'undefined') {
   var currentScript = window.document.currentScript
-  if (false) { var getCurrentScript; }
+  if (false) // removed by dead control flow
+{ var getCurrentScript; }
 
   var src = currentScript && currentScript.src.match(/(.+\/)[^/]+\.js(\?.*)?$/)
   if (src) {
