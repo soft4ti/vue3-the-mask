@@ -2,11 +2,6 @@
   "tests": "./test/*_scenario.js",
   "timeout": 10000,
   "output": "./output",
-  "helpers": {
-    "Puppeteer": {
-      "url": "http://localhost:5000/test"
-    }
-  },
   "include": {},
   "bootstrap": false,
   "mocha": {},
