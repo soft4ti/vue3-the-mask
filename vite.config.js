@@ -24,6 +24,10 @@ export default defineConfig(({ command, mode }) => {
           input: resolve(__dirname, "src/docs/index.html"),
         },
       },
+      test: {
+        globals: true,
+        environment: "jsdom",
+      },
     };
   }
 
@@ -48,6 +52,17 @@ export default defineConfig(({ command, mode }) => {
             vue: "Vue",
           },
         },
+      },
+    },
+    test: {
+      globals: true,
+      environment: "jsdom",
+      include: ["test/**/*.test.js"],
+      coverage: {
+        provider: "v8",
+        reporter: ["text", "json", "html"],
+        include: ["src/**/*.{js,vue}"],
+        exclude: ["src/index.js", "src/docs/**"],
       },
     },
   };

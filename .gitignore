@@ -8,10 +8,10 @@ node_modules/
 !.yarn/versions
 
 # Cypress
-cypress/videos/          # ✅ Vídeos dos testes (sempre ignorar)
-cypress/screenshots/     # ✅ Screenshots de falhas (sempre ignorar)
-cypress/downloads/       # ✅ Arquivos baixados durante testes
-cypress/results/         # ⚠️  Se usar reporters (opcional)
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+cypress/results/
 
 # Vitest
-coverage/               # ✅ Coverage reports
+coverage/
