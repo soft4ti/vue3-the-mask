@@ -1,1 +1,17 @@
+# Dependências
 node_modules/
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Cypress
+cypress/videos/          # ✅ Vídeos dos testes (sempre ignorar)
+cypress/screenshots/     # ✅ Screenshots de falhas (sempre ignorar)
+cypress/downloads/       # ✅ Arquivos baixados durante testes
+cypress/results/         # ⚠️  Se usar reporters (opcional)
+
+# Vitest
+coverage/               # ✅ Coverage reports
