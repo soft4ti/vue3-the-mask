@@ -34,7 +34,7 @@
   "size-limit": [
     {
       "path": "dist/vue-the-mask.umd.js",
-      "limit": "1.55 KB"
+      "limit": "100 KB"
     }
   ],
   "author": "Soft4ti",

@@ -42,12 +42,14 @@
 
       <div class="equal width fields">
         <field
+          id="cpf"
           label="Brazil CPF"
           mask="###.###.###-##"
           value="12345678901"
           :masked="masked"
         ></field>
         <field
+          id="cnpj"
           label="Brazil CNPJ"
           mask="##.###.###/####-##"
           value="27.865.757/0063-05"
@@ -89,6 +91,7 @@
 
       <div class="equal width fields">
         <field
+          id="date"
           label="Date"
           mask="##/##/####"
           placeholder="dd/mm/yyyy"
@@ -159,6 +162,7 @@
         <div class="field">
           <p>
             <field
+              id="phone"
               label="Brazil 9th digit"
               :mask="['(##) ####-####', '(##) #####-####']"
               :masked="masked"

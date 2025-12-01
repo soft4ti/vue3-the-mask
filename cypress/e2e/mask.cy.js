@@ -11,12 +11,14 @@ describe("TheMask Component", () => {
     });
 
     it("should apply CPF mask correctly", () => {
+      cy.get('[id="cpf"]').clear();
       cy.get('[id="cpf"]')
         .type("12345678901")
         .should("have.value", "123.456.789-01");
     });
 
     it("should apply date mask correctly", () => {
+      cy.get('[id="date"]').clear();
       cy.get('[id="date"]').type("12252023").should("have.value", "12/25/2023");
     });
 
@@ -71,6 +73,7 @@ describe("TheMask Component", () => {
 
   describe("CNPJ Mask", () => {
     it("should apply CNPJ mask correctly", () => {
+      cy.get('[id="cnpj"]').clear();
       cy.get('[id="cnpj"]')
         .type("12345678901234")
         .should("have.value", "12.345.678/9012-34");
