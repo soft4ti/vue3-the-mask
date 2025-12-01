@@ -2,7 +2,7 @@
   "name": "vue3-the-mask",
   "version": "1.0.0",
   "description": "Tiny (2KB) and dependency free mask input for Vue.js",
-  "main": "dist/vue-the-mask.js",
+  "main": "dist/vue-the-mask.umd.js",
   "scripts": {
     "size": "size-limit",
     "upgrade:check": "ncu",
