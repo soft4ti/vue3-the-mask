@@ -1,4 +1,4 @@
-import { resolveDirective as g, withDirectives as y, createElementBlock as w, openBlock as _ } from "vue";
+import { resolveDirective as g, withDirectives as y, openBlock as w, createElementBlock as _ } from "vue";
 const h = {
   "#": { pattern: /\d/ },
   X: { pattern: /[0-9a-zA-Z]/ },
@@ -129,7 +129,7 @@ const E = (t, e) => {
 }, T = ["value"];
 function k(t, e, n, a, r, o) {
   const i = g("mask");
-  return y((_(), w("input", {
+  return y((w(), _("input", {
     type: "text",
     value: r.display,
     onInput: e[0] || (e[0] = (...u) => o.onInput && o.onInput(...u))

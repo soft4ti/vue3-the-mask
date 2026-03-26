@@ -27,6 +27,12 @@ describe("TheMask Component", () => {
         .type("192168001001")
         .should("have.value", "192.168.001.001");
     });
+
+    it("should apply US phone number mask correctly", () => {
+      cy.get("#us-phone")
+        .type("12025550134")
+        .should("have.value", "+1 (202) 555-0134");
+    });
   });
 
   describe("Keyboard Interaction", () => {
