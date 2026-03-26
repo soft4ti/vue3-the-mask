@@ -59,6 +59,7 @@
 
       <div class="equal width fields">
         <field
+          id="us-phone"
           label="US Phone"
           mask="+1 (###) ###-####"
           value="2025550134"
