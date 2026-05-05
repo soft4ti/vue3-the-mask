@@ -27,12 +27,14 @@
 
       <div class="equal width fields">
         <field
+          id="us-zip"
           label="US Zip"
           mask="#####"
           value="12345"
           :masked="masked"
         ></field>
         <field
+          id="br-zip"
           label="Brazil Zip"
           mask="#####-###"
           value="87010-230"
@@ -66,6 +68,7 @@
           :masked="masked"
         ></field>
         <field
+          id="br-phone"
           label="Brazil Phone"
           mask="+55 (##) ####-####"
           value="4432211266"
@@ -76,6 +79,7 @@
       <div class="equal width fields">
         <!-- <field label="IP Addr." mask="###.###.###.###" :masked="masked"></field> -->
         <field
+          id="date-time"
           label="DateTime"
           mask="##/##/#### ##:##:##"
           value="04011981 060515"
@@ -83,6 +87,7 @@
           :masked="masked"
         ></field>
         <field
+          id="credit-card"
           label="Credit Card"
           mask="#### #### #### ####"
           value="4916479938940351"
@@ -100,6 +105,7 @@
           :masked="masked"
         ></field>
         <field
+          id="time"
           label="Time"
           mask="##:##:##"
           placeholder="hh:mm:ss"
@@ -110,6 +116,7 @@
 
       <div class="equal width fields">
         <field
+          id="placa"
           label="Br Car Plate"
           mask="AAA ####"
           value="IVY1703"
@@ -117,6 +124,7 @@
           type="text"
         ></field>
         <field
+          id="ca-zip"
           label="Canada Zip"
           mask="S#S #S#"
           value="M5P 2N7"
@@ -128,6 +136,7 @@
         <div class="field">
           <label>IBAN {{ iban }}</label>
           <the-mask
+            id="iban"
             mask="AA## #### #### #### #### #### ###"
             v-model="iban"
             :masked="masked"
@@ -137,6 +146,7 @@
         <div class="field">
           <label>Vehicle Identification {{ vehicle }}</label>
           <the-mask
+            id="vehicle-id"
             mask="XX.XX.XXXXX.X.X.XXXXXX"
             v-model="vehicle"
             :masked="masked"
@@ -150,6 +160,7 @@
         <div class="field">
           <p>
             <field
+              id="cpf-cnpj"
               label="CPF/CNPJ"
               :mask="['###.###.###-##', '##.###.###/####-##']"
               :masked="masked"
@@ -179,6 +190,7 @@
         <div class="field">
           <p>
             <field
+              id="bank-agency"
               label="Bank Agency"
               :mask="['###', '###-#', '###-##']"
               :masked="masked"
@@ -190,6 +202,7 @@
         <div class="field">
           <p>
             <field
+              id="bank-account"
               label="Bank Account"
               :mask="['###-#', '####-#', '#####-#', '######-#']"
               :masked="masked"
