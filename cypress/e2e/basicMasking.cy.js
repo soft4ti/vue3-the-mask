@@ -35,6 +35,11 @@ describe("Basic Masking", () => {
       expected: "+55 (12) 1234-1234",
     },
     {
+      id: "#date-time",
+      input: "19032003223045",
+      expected: "19/03/2003 22:30:45",
+    },
+    {
       id: "#credit-card",
       input: "1234123412341234",
       expected: "1234 1234 1234 1234",

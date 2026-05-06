@@ -104,6 +104,11 @@ describe("Paste interactions", () => {
       input: "3212312",
       expected: "321231-2",
     },
+    {
+      id: "#hex-color",
+      input: "abc123",
+      expected: "ABC123",
+    },
   ];
 
   cases.forEach(({ id, input, expected }) => {

@@ -220,6 +220,7 @@
 
       <div>
         <field
+          id="hex-color"
           label="Hex. Color"
           mask="FFFFFF"
           :masked="masked"
