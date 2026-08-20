@@ -1,6 +1,6 @@
 {
   "name": "vue3-the-mask",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Tiny (2KB) and dependency free mask input for Vue.js",
   "main": "dist/vue-the-mask.umd.js",
   "scripts": {
@@ -81,9 +81,12 @@
     "npm-check-updates": "^19.1.2",
     "size-limit": "^11.2.0",
     "start-server-and-test": "^2.1.3",
-    "vite": "7.3.2",
+    "vite": "7.3.5",
     "vitest": "4.1.5",
     "vue": "^3.5.25"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "resolutions": {
+    "esbuild": "^0.28.1"
+  }
 }
