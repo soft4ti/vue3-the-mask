@@ -36,7 +36,7 @@ function A(t, e, n) {
   };
 }
 function f(t, e, n = !0, a) {
-  return Array.isArray(e) ? A(c, e, a)(t, e, n, a) : c(t, e, n, a);
+  return Array.isArray(e) ? A(c, e, a)(t, e, n) : c(t, e, n, a);
 }
 function d(t) {
   var e = document.createEvent("Event");
@@ -126,18 +126,18 @@ const E = (t, e) => {
       e !== this.lastValue && (this.lastValue = e, this.$emit("update:modelValue", e));
     }
   }
-}, T = ["value"];
-function k(t, e, n, a, r, o) {
+}, k = ["value"];
+function T(t, e, n, a, r, o) {
   const i = g("mask");
   return y((w(), _("input", {
     type: "text",
     value: r.display,
     onInput: e[0] || (e[0] = (...u) => o.onInput && o.onInput(...u))
-  }, null, 40, T)), [
+  }, null, 40, k)), [
     [i, o.config]
   ]);
 }
-const v = /* @__PURE__ */ E(V, [["render", k]]), I = (t) => {
+const v = /* @__PURE__ */ E(V, [["render", T]]), I = (t) => {
   t.component(v.name, v), t.directive("mask", m);
 };
 typeof window < "u" && window.Vue && window.Vue.use(I);
