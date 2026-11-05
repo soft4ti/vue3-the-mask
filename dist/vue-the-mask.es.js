@@ -1,149 +1,145 @@
-import { resolveDirective as g, withDirectives as y, openBlock as w, createElementBlock as _ } from "vue";
-const h = {
-  "#": { pattern: /\d/ },
-  X: { pattern: /[0-9a-zA-Z]/ },
-  S: { pattern: /[a-zA-Z]/ },
-  A: { pattern: /[a-zA-Z]/, transform: (t) => t.toLocaleUpperCase() },
-  a: { pattern: /[a-zA-Z]/, transform: (t) => t.toLocaleLowerCase() },
-  "!": { escape: !0 }
+import { createElementBlock as e, openBlock as t, resolveDirective as n, withDirectives as r } from "vue";
+// src/tokens.js
+var i = {
+	"#": { pattern: /\d/ },
+	X: { pattern: /[0-9a-zA-Z]/ },
+	S: { pattern: /[a-zA-Z]/ },
+	A: {
+		pattern: /[a-zA-Z]/,
+		transform: (e) => e.toLocaleUpperCase()
+	},
+	a: {
+		pattern: /[a-zA-Z]/,
+		transform: (e) => e.toLocaleLowerCase()
+	},
+	"!": { escape: !0 }
 };
-function c(t, e, n = !0, a) {
-  t = t || "", e = e || "";
-  for (var r = 0, o = 0, i = ""; r < e.length && o < t.length; ) {
-    var u = e[r], s = a[u], l = t[o];
-    s && !s.escape ? (s.pattern.test(l) && (i += s.transform ? s.transform(l) : l, r++), o++) : (s && s.escape && (r++, u = e[r]), n && (i += u), l === u && o++, r++);
-  }
-  for (var p = ""; r < e.length && n; ) {
-    var u = e[r];
-    if (a[u]) {
-      p = "";
-      break;
-    }
-    p += u, r++;
-  }
-  return i + p;
+// src/maskit.js
+function a(e, t, n = !0, r) {
+	e ||= "", t ||= "";
+	for (var i = 0, a = 0, o = ""; i < t.length && a < e.length;) {
+		var s = t[i], c = r[s], l = e[a];
+		c && !c.escape ? (c.pattern.test(l) && (o += c.transform ? c.transform(l) : l, i++), a++) : (c && c.escape && (i++, s = t[i]), n && (o += s), l === s && a++, i++);
+	}
+	for (var u = ""; i < t.length && n;) {
+		var s = t[i];
+		if (r[s]) {
+			u = "";
+			break;
+		}
+		u += s, i++;
+	}
+	return o + u;
 }
-function A(t, e, n) {
-  return e = e.sort((a, r) => a.length - r.length), function(a, r, o = !0) {
-    for (var i = 0; i < e.length; ) {
-      var u = e[i];
-      i++;
-      var s = e[i];
-      if (!(s && t(a, s, !0, n).length > u.length))
-        return t(a, u, o, n);
-    }
-    return "";
-  };
+// src/dynamic-mask.js
+function o(e, t, n) {
+	return t = t.sort((e, t) => e.length - t.length), function(r, i, a = !0) {
+		for (var o = 0; o < t.length;) {
+			var s = t[o];
+			o++;
+			var c = t[o];
+			if (!(c && e(r, c, !0, n).length > s.length)) return e(r, s, a, n);
+		}
+		return "";
+	};
 }
-function f(t, e, n = !0, a) {
-  return Array.isArray(e) ? A(c, e, a)(t, e, n) : c(t, e, n, a);
+// src/masker.js
+function s(e, t, n = !0, r) {
+	return Array.isArray(t) ? o(a, t, r)(e, t, n, r) : a(e, t, n, r);
 }
-function d(t) {
-  var e = document.createEvent("Event");
-  return e.initEvent(t, !0, !0), e;
+// src/directive.js
+function c(e) {
+	var t = document.createEvent("Event");
+	return t.initEvent(e, !0, !0), t;
 }
-function m(t, e) {
-  var n = e.value;
-  if ((Array.isArray(n) || typeof n == "string") && (n = {
-    mask: n,
-    tokens: h
-  }), t.tagName.toLocaleUpperCase() !== "INPUT") {
-    var a = t.getElementsByTagName("input");
-    if (a.length !== 1)
-      throw new Error("v-mask directive requires 1 input, found " + a.length);
-    t = a[0];
-  }
-  t.oninput = function(o) {
-    if (o.isTrusted) {
-      var i = t.selectionEnd, u = t.value[i - 1];
-      for (t.value = f(t.value, n.mask, !0, n.tokens); i < t.value.length && t.value.charAt(i - 1) !== u; )
-        i++;
-      t === document.activeElement && (t.setSelectionRange(i, i), setTimeout(function() {
-        t.setSelectionRange(i, i);
-      }, 0)), t.dispatchEvent(d("input"));
-    }
-  };
-  var r = f(t.value, n.mask, !0, n.tokens);
-  r !== t.value && (t.value = r, t.dispatchEvent(d("input")));
+function l(e, t) {
+	var n = t.value;
+	if ((Array.isArray(n) || typeof n == "string") && (n = {
+		mask: n,
+		tokens: i
+	}), e.tagName.toLocaleUpperCase() !== "INPUT") {
+		var r = e.getElementsByTagName("input");
+		if (r.length !== 1) throw Error("v-mask directive requires 1 input, found " + r.length);
+		e = r[0];
+	}
+	e.oninput = function(t) {
+		if (t.isTrusted) {
+			var r = e.selectionEnd, i = e.value[r - 1];
+			for (e.value = s(e.value, n.mask, !0, n.tokens); r < e.value.length && e.value.charAt(r - 1) !== i;) r++;
+			e === document.activeElement && (e.setSelectionRange(r, r), setTimeout(function() {
+				e.setSelectionRange(r, r);
+			}, 0)), e.dispatchEvent(c("input"));
+		}
+	};
+	var a = s(e.value, n.mask, !0, n.tokens);
+	a !== e.value && (e.value = a, e.dispatchEvent(c("input")));
 }
-const E = (t, e) => {
-  const n = t.__vccOpts || t;
-  for (const [a, r] of e)
-    n[a] = r;
-  return n;
-}, V = {
-  name: "TheMask",
-  emits: ["update:modelValue"],
-  props: {
-    modelValue: [String, Number],
-    mask: {
-      type: [String, Array],
-      required: !0
-    },
-    masked: {
-      // by default emits the value unformatted, change to true to format with the mask
-      type: Boolean,
-      default: !1
-      // raw
-    },
-    tokens: {
-      type: Object,
-      default: () => h
-    }
-  },
-  directives: { mask: m },
-  data() {
-    return {
-      lastValue: null,
-      // avoid unecessary emit when has no change
-      display: this.modelValue
-    };
-  },
-  watch: {
-    modelValue(t) {
-      t !== this.lastValue && (this.display = t);
-    },
-    masked() {
-      this.refresh(this.display);
-    }
-  },
-  computed: {
-    config() {
-      return {
-        mask: this.mask,
-        tokens: this.tokens,
-        masked: this.masked
-      };
-    }
-  },
-  methods: {
-    onInput(t) {
-      t.isTrusted || this.refresh(t.target.value);
-    },
-    refresh(e) {
-      this.display = e;
-      var e = f(e, this.mask, this.masked, this.tokens);
-      e !== this.lastValue && (this.lastValue = e, this.$emit("update:modelValue", e));
-    }
-  }
-}, k = ["value"];
-function T(t, e, n, a, r, o) {
-  const i = g("mask");
-  return y((w(), _("input", {
-    type: "text",
-    value: r.display,
-    onInput: e[0] || (e[0] = (...u) => o.onInput && o.onInput(...u))
-  }, null, 40, k)), [
-    [i, o.config]
-  ]);
+// \0plugin-vue:export-helper
+var u = (e, t) => {
+	let n = e.__vccOpts || e;
+	for (let [e, r] of t) n[e] = r;
+	return n;
+}, d = {
+	name: "TheMask",
+	emits: ["update:modelValue"],
+	props: {
+		modelValue: [String, Number],
+		mask: {
+			type: [String, Array],
+			required: !0
+		},
+		masked: {
+			type: Boolean,
+			default: !1
+		},
+		tokens: {
+			type: Object,
+			default: () => i
+		}
+	},
+	directives: { mask: l },
+	data() {
+		return {
+			lastValue: null,
+			display: this.modelValue
+		};
+	},
+	watch: {
+		modelValue(e) {
+			e !== this.lastValue && (this.display = e);
+		},
+		masked() {
+			this.refresh(this.display);
+		}
+	},
+	computed: { config() {
+		return {
+			mask: this.mask,
+			tokens: this.tokens,
+			masked: this.masked
+		};
+	} },
+	methods: {
+		onInput(e) {
+			e.isTrusted || this.refresh(e.target.value);
+		},
+		refresh(e) {
+			this.display = e;
+			var e = s(e, this.mask, this.masked, this.tokens);
+			e !== this.lastValue && (this.lastValue = e, this.$emit("update:modelValue", e));
+		}
+	}
+}, f = ["value"];
+function p(i, a, o, s, c, l) {
+	let u = n("mask");
+	return r((t(), e("input", {
+		type: "text",
+		value: c.display,
+		onInput: a[0] ||= (...e) => l.onInput && l.onInput(...e)
+	}, null, 40, f)), [[u, l.config]]);
 }
-const v = /* @__PURE__ */ E(V, [["render", T]]), I = (t) => {
-  t.component(v.name, v), t.directive("mask", m);
+var m = /*#__PURE__*/ u(d, [["render", p]]), h = (e) => {
+	e.component(m.name, m), e.directive("mask", l);
 };
-typeof window < "u" && window.Vue && window.Vue.use(I);
-export {
-  v as TheMask,
-  I as default,
-  m as mask,
-  h as tokens
-};
+typeof window < "u" && window.Vue && window.Vue.use(h);
+export { m as TheMask, h as default, l as mask, i as tokens };

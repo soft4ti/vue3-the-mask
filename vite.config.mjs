@@ -20,7 +20,7 @@ export default defineConfig(({ command, mode }) => {
       build: {
         outDir: resolve(__dirname, "docs"),
         emptyOutDir: true,
-        rollupOptions: {
+        rolldownOptions: {
           input: resolve(__dirname, "src/docs/index.html"),
         },
       },
@@ -44,7 +44,7 @@ export default defineConfig(({ command, mode }) => {
             ? "vue-the-mask.umd.js"
             : `vue-the-mask.${format}.js`,
       },
-      rollupOptions: {
+      rolldownOptions: {
         external: ["vue"],
         output: {
           exports: "named",
