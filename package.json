@@ -76,7 +76,7 @@
     "@vue/compiler-sfc": "^3.5.45",
     "@vue/test-utils": "^2.4.6",
     "autoprefixer": "^10.6.2",
-    "cypress": "^15.7.0",
+    "cypress": "^16.2.1",
     "jsdom": "^31.0.0",
     "npm-check-updates": "^19.1.2",
     "size-limit": "^14.3.0",
