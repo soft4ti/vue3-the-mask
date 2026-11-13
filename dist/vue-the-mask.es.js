@@ -16,7 +16,7 @@ var i = {
 };
 // src/maskit.js
 function a(e, t, n = !0, r) {
-	e ||= "", t ||= "";
+	e = e || "", t = t || "";
 	for (var i = 0, a = 0, o = ""; i < t.length && a < e.length;) {
 		var s = t[i], c = r[s], l = e[a];
 		c && !c.escape ? (c.pattern.test(l) && (o += c.transform ? c.transform(l) : l, i++), a++) : (c && c.escape && (i++, s = t[i]), n && (o += s), l === s && a++, i++);
@@ -135,7 +135,7 @@ function p(i, a, o, s, c, l) {
 	return r((t(), e("input", {
 		type: "text",
 		value: c.display,
-		onInput: a[0] ||= (...e) => l.onInput && l.onInput(...e)
+		onInput: a[0] || (a[0] = (...e) => l.onInput && l.onInput(...e))
 	}, null, 40, f)), [[u, l.config]]);
 }
 var m = /*#__PURE__*/ u(d, [["render", p]]), h = (e) => {
