@@ -20,7 +20,7 @@ export default defineConfig(({ command, mode }) => {
       build: {
         outDir: resolve(__dirname, "docs"),
         emptyOutDir: true,
-        rollupOptions: {
+        rolldownOptions: {
           input: resolve(__dirname, "src/docs/index.html"),
         },
       },
@@ -35,6 +35,10 @@ export default defineConfig(({ command, mode }) => {
   return {
     plugins: [vue()],
     build: {
+      // Mesmo nível de sintaxe do Vue 3 (ES2016). Sem isso, o Vite 8 usa o target
+      // "baseline-widely-available" e o minificador emite ES2021 (ex.: `||=`),
+      // quebrando consumidores com parsers antigos (webpack 4, Node <= 14).
+      target: "es2016",
       lib: {
         entry: resolve(__dirname, "src/index.js"),
         name: "VueTheMask",
@@ -44,7 +48,7 @@ export default defineConfig(({ command, mode }) => {
             ? "vue-the-mask.umd.js"
             : `vue-the-mask.${format}.js`,
       },
-      rollupOptions: {
+      rolldownOptions: {
         external: ["vue"],
         output: {
           exports: "named",
